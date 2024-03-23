@@ -9,12 +9,12 @@ session_start();
 include_once "connectdb.php";
 
 // Get user input
-$userName = $_POST["user_name"];
+$userEmail = $_POST["user_email"];
 $userPassword = $_POST["user_password"];
 
 // Create a prepared statement
-$stmt = $conn->prepare("SELECT id, firstname, lastname, password FROM users WHERE username=?");
-$stmt->bind_param("s", $userName);
+$stmt = $conn->prepare("SELECT id, firstname, lastname, password FROM user WHERE email=?");
+$stmt->bind_param("s", $userEmail);
 $stmt->execute();
 $stmt->bind_result($userId, $firstname, $lastname, $storedHashedPassword);
 $stmt->fetch();

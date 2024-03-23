@@ -1,3 +1,9 @@
+<?php
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +20,15 @@
         <div class='col-4'></div>
         <div class='col-4'>
             <?php
-            session_start();
             include_once "connectdb.php";
             $email = $_POST["user_email"];
             $password = $_POST["user_password"];
-            $firstname= $_POST["firstname"];
-            $lastname= $_POST["lastname"];
+            $firstname= $_POST["first_name"];
+            $lastname= $_POST["last_name"];
 
             // Check if username already exists
-            $checkStmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
-            $checkStmt->bind_param("s", $username);
+            $checkStmt = $conn->prepare("SELECT email FROM user WHERE email = ?");
+            $checkStmt->bind_param("s", $email);
             $checkStmt->execute();
             $checkResult = $checkStmt->get_result();
 
@@ -35,7 +40,7 @@
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 // Create a prepared statement
-                $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
                 $stmt->bind_param("ssss", $firstname, $lastname, $email, $hashedPassword);
 
                 // Execute the statement

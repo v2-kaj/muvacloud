@@ -18,47 +18,21 @@ session_start();
 
 <body>
 	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="#">Muva Cloud</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Services</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+	<?php
+    include_once "nav.php";
+    ?>
 	<!-- Hero Section -->
 	<section class="hero-section text-center py-5">
 		<div class="container">
 			<h1>Welcome to Muva Systems</h1>
 			<p class="lead">Your Trusted Cloud Service Provider</p>
-			<a href="" class="btn btn-primary btn-lg">Get Started</a>
-			
+			<a href="" class="btn btn-primary btn-lg">Get Started</a>		
 		</div>
 	</section>
 
 	<!-- Services Section -->
 	<section class="services-section py-5">
 		<div class="container">
-		<a href="create_account.php" class="btn btn-primary btn-lg">Register</a>
-			<a href="login.php" class="btn btn-primary btn-lg">Login</a>
 			<h2 class="text-center mb-5">Our Services</h2>
 			<div class="row">
 				<div class="col-md-4">
