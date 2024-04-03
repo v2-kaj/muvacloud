@@ -53,7 +53,7 @@ session_start();
 							<button type="submit" class="btn btn-primary">Login</button>
 						</form>
 						<br>
-						<a href="register.php">Create an account</a>
+						<a href="create_account.php">Create an account</a>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
